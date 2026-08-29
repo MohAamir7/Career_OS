@@ -1,6 +1,5 @@
 import DashBoardStat from "../../Components/DashBoardStats/DashBoardStat";
 import DashBoardLayout from "../../Layouts/DashBoardLayout";
-import tailwindcss from "@tailwindcss/vite";
 
 function DashBoard() {
   return (
