@@ -1,5 +1,6 @@
 import ApplicationOverview from "../../Components/ApplicationOverview/ApplicationOverview";
 import DashBoardStat from "../../Components/DashBoardStats/DashBoardStat";
+import RecentActivity from "../../Components/RecentActivity/RecentActivity";
 import UpcomingInterview from "../../Components/UpcomingInterviews/Upcoming-Interview";
 
 function DashBoard() {
@@ -20,6 +21,9 @@ function DashBoard() {
         <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-2">
           <ApplicationOverview />
           <UpcomingInterview />
+        </div>
+        <div className="mt-6">
+        <RecentActivity/>
         </div>
       </div>
     </main>
