@@ -1,3 +1,4 @@
+import ApplicationOverview from "../../Components/ApplicationOverview/ApplicationOverview";
 import DashBoardStat from "../../Components/DashBoardStats/DashBoardStat";
 
 function DashBoard() {
@@ -17,6 +18,7 @@ function DashBoard() {
         </div>
 
         <DashBoardStat />
+        <ApplicationOverview/>
 
       </div>
     </main>

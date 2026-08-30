@@ -6,9 +6,12 @@ function DashBoardStat(){
       {CardData.map((obj) => {
         return (
           <StatsCard
-            // key={obj.id}
+            key={obj.id}
             text={obj.cardName}
             value={obj.cardValue}
+            description={obj.description}
+            trend={obj.trend}
+
           />
         );
       })}
