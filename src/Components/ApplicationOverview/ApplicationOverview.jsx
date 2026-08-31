@@ -23,6 +23,7 @@ function ApplicationOverview() {
             company={obj.company}
             position={obj.position}
             date={obj.appliedDate}
+            status = {obj.status}
           />
         ))}
       </div>
