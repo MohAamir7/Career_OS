@@ -1,19 +1,24 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import './App.css'
 import DashBoard from './pages/Dashboard/DashBoard'
 import DashBoardLayout from './Layouts/DashBoardLayout'
+import Application from './pages/Applications/Application'
 
 function App() {
-  const [count, setCount] = useState(0)
+  // const [count, setCount] = useState(0)
 
   return (
     <>
-    <DashBoardLayout>
-      <DashBoard></DashBoard>
-    </DashBoardLayout>
+    <BrowserRouter>
+      <Routes>
+        {/* <Route path="/" element={<Navigate to="/dashboardLayout" />} /> */}
+        <Route element={<DashBoardLayout />}>
+          <Route path="dashboard" element={<DashBoard />} />
+          <Route path="applications" element={<Application />} />
+        </Route>
+
+      </Routes>
+    </BrowserRouter>
     </>
   )
 }
