@@ -24,6 +24,7 @@ function ApplicationOverview() {
             position={obj.position}
             date={obj.appliedDate}
             status = {obj.status}
+            location={obj.location}
           />
         ))}
       </div>

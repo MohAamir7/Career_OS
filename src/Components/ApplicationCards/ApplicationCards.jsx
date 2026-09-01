@@ -1,4 +1,5 @@
-import { BriefcaseBusiness } from "lucide-react";
+
+import { BriefcaseBusiness,PinIcon } from "lucide-react";
 
 function ApplicationCard(props) {
   const statusStyles = {
@@ -28,6 +29,15 @@ function ApplicationCard(props) {
         </span>
       </div>
       <h2 className="text-sm font-medium text-slate-500">{props.position}</h2>
+      <div className="flex items-center gap-3">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
+            <PinIcon size={20} />
+          </div>
+
+          <h3 className="text-base font-semibold text-slate-500">
+            {props.location}
+          </h3>
+        </div>
 
       <p className="mt-3 text-xs text-slate-400">Applied:{props.date}</p>
       {/* <p>{props.status}</p> */}

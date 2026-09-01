@@ -18,7 +18,7 @@ function DashBoard() {
         </div>
 
         <DashBoardStat />
-        <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-2">
+        <div className="mt-6 grid grid-cols-1 items-start gap-6 lg:grid-cols-2">
           <ApplicationOverview />
           <UpcomingInterview />
         </div>

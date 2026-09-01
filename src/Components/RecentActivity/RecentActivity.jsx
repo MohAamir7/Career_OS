@@ -20,7 +20,7 @@ function RecentActivity() {
       </div>
       <div className="mt-4 space-y-3">
         {ActivityList.map((obj) => (
-          <ActivityCard key={obj.id}>{obj}</ActivityCard>
+          <ActivityCard key={obj.id} activity={obj}></ActivityCard>
         ))}
       </div>
     </div>

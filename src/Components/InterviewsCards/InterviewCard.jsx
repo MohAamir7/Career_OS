@@ -1,4 +1,4 @@
-import { CalendarDays, Clock3, Video, BriefcaseBusiness } from "lucide-react";
+import { CalendarDays, Clock3, Laptop, BriefcaseBusiness } from "lucide-react";
 
 function InteviewCard(props) {
   const statusStyles = {
@@ -34,32 +34,34 @@ function InteviewCard(props) {
       <p className="flex items-center gap-2 text-sm text-slate-500">
         {props.children.interviewType}
       </p>
-      <div className="flex items-center gap-3">
-        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
-          <CalendarDays size={20} />
-        </div>
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+        <div className="flex items-center gap-3">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
+            <CalendarDays size={20} />
+          </div>
 
-        <h3 className="flex items-center gap-2 text-sm text-slate-500">
-          {props.children.date}
-        </h3>
-      </div>
-      <div className="flex items-center gap-3 mt-1">
-        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
-          <Clock3 size={20} />
+          <h3 className="flex items-center gap-2 text-sm text-slate-500">
+            {props.children.date}
+          </h3>
         </div>
+        <div className="flex items-center gap-3 mt-1">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
+            <Clock3 size={20} />
+          </div>
 
-        <h3 className="flex items-center gap-2 text-sm text-slate-500">
-          {props.children.time}
-        </h3>
-      </div>{" "}
-      <div className="flex items-center gap-3 mt-1">
-        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
-          <Video size={20} />
+          <h3 className="flex items-center gap-2 text-sm text-slate-500">
+            {props.children.time}
+          </h3>
+        </div>{" "}
+        <div className="flex items-center gap-3 mt-1">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
+            <Laptop size={20} />
+          </div>
+
+          <h3 className="flex items-center gap-2 text-sm text-slate-500">
+            {props.children.mode}
+          </h3>
         </div>
-
-        <h3 className="flex items-center gap-2 text-sm text-slate-500">
-          {props.children.mode}
-        </h3>
       </div>
     </div>
   );
