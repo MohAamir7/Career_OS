@@ -13,6 +13,7 @@ function App() {
       <Routes>
         {/* <Route path="/" element={<Navigate to="/dashboardLayout" />} /> */}
         <Route element={<DashBoardLayout />}>
+          <Route path="/" element={<Navigate to="/dashboard" />} />
           <Route path="dashboard" element={<DashBoard />} />
           <Route path="applications" element={<Application />} />
         </Route>
