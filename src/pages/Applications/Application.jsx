@@ -2,9 +2,12 @@ import ApplicationOverview from "../../Components/ApplicationOverview/Applicatio
 import ApplicationCard from "../../Components/ApplicationCards/ApplicationCards";
 import { applicationData } from "../../Data/ApplicationData";
 import { useState, useEffect } from "react";
+import ApplicationModal from "../../Components/ApplicationModal/ApplicationModal";
+import { useNavigate } from "react-router-dom";
 
 function Application() {
   const [ApplicationDataList, setApplicationDataList] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
   function selectStatus(e) {
     const selectedStatus = e.target.value;
@@ -49,13 +52,14 @@ function Application() {
             and never miss an opportunity.
           </p>
         </div>
-
-        <button
+          <button
           className="shrink-0 cursor-pointer rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-indigo-700"
+        onClick={() => setShowModal(!showModal)}
         >
           + Add Application
         </button>
       </div>
+      {showModal && <ApplicationModal />}
 
       <div className="flex flex-col gap-3 md:flex-row *:gap-4 mt-6">
         <input type="text" placeholder="Search applications..." className="border border-slate-300 bg-white py-2 px-4 focus:outline-none focus:ring-2 focus:ring-indigo-500 flex-1" onChange={searchValue} />
