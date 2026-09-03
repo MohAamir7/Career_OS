@@ -1,17 +1,38 @@
 import { useState } from "react";
+import {applicationData} from "../../Data/ApplicationData";
+import { useNavigate } from "react-router-dom";
 
-function ApplicationModal({ onClose }) {
-  const [formData, setFormData] = useState({
-    company: "",
-    position: "",
-    location: "",
-    appliedDate: "",
-    status: "Applied",
-    jobType: "Full Time",
-  });
+function ApplicationModal({ onClose, onAddApplication }) {
+    const [formData, setFormData] = useState({
+  company: "",
+  position: "",
+  location: "",
+  appliedDate: "",
+  status: "Applied",
+  jobType: "Full Time",
+});
+  
+//   let navigate = useNavigate();
+//   const [isOpen, setIsOpen] = useState(true);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    // console.log("Form submitted called");
+
+    const newApplication = {
+      id: applicationData.length + 1,
+      ...formData};
+    //   console.log("New Application:", newApplication);
+      onAddApplication(newApplication);
+    // console.log("parent function should have been  called");
+    // console.log("Form submitted:", formData);
+    // setFormData(newData);
+    // navigate("/Applications", { state: { newApplication: newData } });
+    onClose();
+  }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50 px-4">
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50 px-4">
 
       {/* Modal */}
       <div className="w-full max-w-2xl rounded-2xl bg-white p-6 shadow-xl">
@@ -38,7 +59,7 @@ function ApplicationModal({ onClose }) {
         </div>
 
         {/* Form */}
-        <form className="space-y-5">
+          <form className="space-y-5">
 
           {/* Company + Position */}
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
@@ -52,7 +73,7 @@ function ApplicationModal({ onClose }) {
                 id="company"
                 type="text"
                 placeholder="e.g. Google"
-                className="w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20"
+                className="w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20" onChange={(e) => setFormData({ ...formData, company: e.target.value })}
               />
             </label>
 
@@ -65,7 +86,7 @@ function ApplicationModal({ onClose }) {
                 id="position"
                 type="text"
                 placeholder="e.g. Frontend Developer"
-                className="w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20"
+                className="w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20" onChange={(e) => setFormData({ ...formData, position: e.target.value })}
               />
             </label>
 
@@ -83,7 +104,7 @@ function ApplicationModal({ onClose }) {
                 id="location"
                 type="text"
                 placeholder="e.g. Bangalore"
-                className="w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20"
+                className="w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20" onChange={(e) => setFormData({ ...formData, location: e.target.value })}
               />
             </label>
 
@@ -95,7 +116,7 @@ function ApplicationModal({ onClose }) {
               <input
                 id="appliedDate"
                 type="date"
-                className="w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20"
+                className="w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20" onChange={(e) => setFormData({ ...formData, appliedDate: e.target.value })}
               />
             </label>
 
@@ -112,6 +133,7 @@ function ApplicationModal({ onClose }) {
               <select
                 id="status"
                 className="w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-700 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20"
+                onChange={(e) => setFormData({ ...formData, status: e.target.value })}
               >
                 <option value="Applied">Applied</option>
                 <option value="Interview">Interview</option>
@@ -127,7 +149,7 @@ function ApplicationModal({ onClose }) {
 
               <select
                 id="jobType"
-                className="w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-700 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20"
+                className="w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-700 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20" onChange={(e) => setFormData({ ...formData, jobType: e.target.value })}
               >
                 <option value="Full Time">Full Time</option>
                 <option value="Part Time">Part Time</option>
@@ -151,8 +173,7 @@ function ApplicationModal({ onClose }) {
 
             <button
               type="submit"
-              className="cursor-pointer rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-indigo-700"
-            >
+              className="cursor-pointer rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-indigo-700" onClick={handleSubmit}>
               Add Application
             </button>
 
