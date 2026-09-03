@@ -42,13 +42,11 @@ function ApplicationCard(props) {
 
       <p className="mt-3 text-xs text-slate-400">Applied:{props.appliedDate}</p>
 
-      <Link to={`/applications/${props.id}`}>
-        <button
-          className="shrink-0 cursor-pointer rounded-xl bg-indigo-600 px-2 mt-1 py-2 text-sm font-normal text-white transition hover:bg-indigo-700"
+      <p
+          className="flex items-center rounded-lg px-3 py-2 text-sm font-medium text-slate-600 cursor-pointer transition-colors duration-150 hover:bg-slate-100 hover:text-slate-900"
         >
-          Application Details
-        </button>
-      </Link>
+          <Link to={`/applications/${props.id}`}>Applications Details</Link>
+        </p>
       {/* <p>{props.status}</p> */}
 
     </div>

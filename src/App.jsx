@@ -4,6 +4,7 @@ import DashBoard from "./pages/Dashboard/DashBoard";
 import DashBoardLayout from "./Layouts/DashBoardLayout";
 import Application from "./pages/Applications/Application";
 import ApplicationDetails from "./pages/Applications/ApplicationDetails";
+import Interviews from "./pages/Interviews/Interviews";
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -21,6 +22,7 @@ function App() {
               path="applications/:applicationId"
               element={<ApplicationDetails />}
             />
+            <Route path="interviews" element={<Interviews />} />
           </Route>
         </Routes>
       </BrowserRouter>
