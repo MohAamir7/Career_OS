@@ -39,7 +39,7 @@ function ApplicationCard(props) {
           </h3>
         </div>
 
-      <p className="mt-3 text-xs text-slate-400">Applied:{props.date}</p>
+      <p className="mt-3 text-xs text-slate-400">Applied:{props.appliedDate}</p>
       {/* <p>{props.status}</p> */}
     </div>
   );
