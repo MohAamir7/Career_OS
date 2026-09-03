@@ -1,5 +1,6 @@
 
 import { BriefcaseBusiness,PinIcon } from "lucide-react";
+import { Link } from "react-router-dom";
 
 function ApplicationCard(props) {
   const statusStyles = {
@@ -40,7 +41,16 @@ function ApplicationCard(props) {
         </div>
 
       <p className="mt-3 text-xs text-slate-400">Applied:{props.appliedDate}</p>
+
+      <Link to={`/applications/${props.id}`}>
+        <button
+          className="shrink-0 cursor-pointer rounded-xl bg-indigo-600 px-2 mt-1 py-2 text-sm font-normal text-white transition hover:bg-indigo-700"
+        >
+          Application Details
+        </button>
+      </Link>
       {/* <p>{props.status}</p> */}
+
     </div>
   );
 }

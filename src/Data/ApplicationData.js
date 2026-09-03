@@ -9,6 +9,8 @@ export const applicationData = [
     employmentType: "Full-time",
     workMode: "Hybrid",
     salary: "₹18–25 LPA",
+    description:
+      "Build polished, accessible interfaces for Google products and partner with designers and backend engineers. Requirements: 3+ years of React experience, strong JavaScript and TypeScript skills, and practical knowledge of web performance.",
   },
   {
     id: 2,
@@ -20,6 +22,8 @@ export const applicationData = [
     employmentType: "Full-time",
     workMode: "Hybrid",
     salary: "₹20–28 LPA",
+    description:
+      "Develop reliable software experiences for Microsoft cloud and productivity products while contributing to scalable engineering solutions. Requirements: proficiency in JavaScript or C#, familiarity with REST APIs, and strong problem-solving skills.",
   },
   {
     id: 3,
@@ -31,6 +35,8 @@ export const applicationData = [
     employmentType: "Full-time",
     workMode: "On-site",
     salary: "₹16–24 LPA",
+    description:
+      "Create fast, customer-focused shopping experiences across Amazon platforms and collaborate with product teams on high-impact features. Requirements: solid React fundamentals, experience with responsive design, and an understanding of browser performance.",
   },
   {
     id: 4,
@@ -42,6 +48,8 @@ export const applicationData = [
     employmentType: "Full-time",
     workMode: "Hybrid",
     salary: "₹12–18 LPA",
+    description:
+      "Design and implement secure, intuitive payment experiences for Razorpay merchants and their customers. Requirements: 2+ years of React.js experience, familiarity with component-driven development, and attention to accessibility and UI details.",
   },
   {
     id: 5,
@@ -53,6 +61,8 @@ export const applicationData = [
     employmentType: "Full-time",
     workMode: "Hybrid",
     salary: "₹15–22 LPA",
+    description:
+      "Build dependable commerce systems and delightful customer features for Flipkart with a focus on scale and maintainability. Requirements: strong data structures knowledge, experience with frontend frameworks, and the ability to work effectively in agile teams.",
   },
   {
     id: 6,
@@ -64,6 +74,8 @@ export const applicationData = [
     employmentType: "Full-time",
     workMode: "Remote",
     salary: "₹18–26 LPA",
+    description:
+      "Create collaborative, intuitive interfaces that help distributed teams work better through Atlassian products. Requirements: expertise in modern frontend development, experience writing automated tests, and clear written communication in remote teams.",
   },
   {
     id: 7,
@@ -75,6 +87,8 @@ export const applicationData = [
     employmentType: "Full-time",
     workMode: "Hybrid",
     salary: "₹14–20 LPA",
+    description:
+      "Craft expressive, high-performance interfaces for Adobe creative and document workflows in close partnership with UX specialists. Requirements: strong HTML, CSS, and JavaScript skills, visual attention to detail, and familiarity with design systems.",
   },
   {
     id: 8,
@@ -86,5 +100,7 @@ export const applicationData = [
     employmentType: "Full-time",
     workMode: "On-site",
     salary: "₹8–12 LPA",
+    description:
+      "Develop clean and responsive web experiences for Zoho business applications while improving usability for growing teams. Requirements: practical HTML, CSS, and JavaScript knowledge, basic React experience, and a willingness to learn from code reviews.",
   },
 ];
