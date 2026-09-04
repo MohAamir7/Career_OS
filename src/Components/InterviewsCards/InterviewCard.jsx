@@ -8,7 +8,7 @@ function InteviewCard(props) {
   };
 
   const statusClass =
-    statusStyles[props.children.status] || "bg-slate-100 text-slate-700";
+    statusStyles[props.status] || "bg-slate-100 text-slate-700";
   // console.log(props);
   return (
     <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-md">
@@ -19,20 +19,20 @@ function InteviewCard(props) {
           </div>
 
           <h3 className="text-base font-semibold text-slate-900">
-            {props.children.company}
+            {props.company}
           </h3>
         </div>
         <span
           className={`inline-flex shrink-0 items-center rounded-full px-2.5 py-1 text-xs font-medium ${statusClass}`}
         >
-          {props.children.status}
+          {props.status}
         </span>
       </div>
       <h3 className="text-base font-semibold text-slate-500">
-        {props.children.position}
+        {props.position}
       </h3>
       <p className="flex items-center gap-2 text-sm text-slate-500">
-        {props.children.interviewType}
+        {props.interviewType}
       </p>
       <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
         <div className="flex items-center gap-3">
@@ -41,7 +41,7 @@ function InteviewCard(props) {
           </div>
 
           <h3 className="flex items-center gap-2 text-sm text-slate-500">
-            {props.children.date}
+            {props.date}
           </h3>
         </div>
         <div className="flex items-center gap-3 mt-1">
@@ -50,7 +50,7 @@ function InteviewCard(props) {
           </div>
 
           <h3 className="flex items-center gap-2 text-sm text-slate-500">
-            {props.children.time}
+            {props.time}
           </h3>
         </div>{" "}
         <div className="flex items-center gap-3 mt-1">
@@ -59,7 +59,7 @@ function InteviewCard(props) {
           </div>
 
           <h3 className="flex items-center gap-2 text-sm text-slate-500">
-            {props.children.mode}
+            {props.mode}
           </h3>
         </div>
       </div>
