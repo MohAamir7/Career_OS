@@ -9,7 +9,7 @@ function InteviewCard(props) {
 
   const statusClass =
     statusStyles[props.status] || "bg-slate-100 text-slate-700";
-  // console.log(props);
+  console.log(props);
   return (
     <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-md">
       <div className="flex items-start justify-between gap-3">

@@ -5,6 +5,7 @@ import DashBoardLayout from "./Layouts/DashBoardLayout";
 import Application from "./pages/Applications/Application";
 import ApplicationDetails from "./pages/Applications/ApplicationDetails";
 import Interviews from "./pages/Interviews/Interviews";
+import Skill from "./pages/Skills/Skill";
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -23,6 +24,7 @@ function App() {
               element={<ApplicationDetails />}
             />
             <Route path="interviews" element={<Interviews />} />
+            <Route path="skills" element={<Skill />} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -21,7 +21,7 @@ function UpcomingInterview() {
       </div>
       <div className="mt-4 space-y-3">
         {interviewList.map((obj) => (
-          <InterviewCard key={obj.id}>{obj}</InterviewCard>
+          <InterviewCard key={obj.id} {...obj} />
         ))}
       </div>
     </div>

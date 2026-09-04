@@ -7,7 +7,7 @@ import {
 } from "lucide-react";
 
 function StatsCard({stats}) {
-    console.log(stats);
+    // console.log(stats);
     const typeIcons = {
     briefcase: BriefcaseBusiness,
     calendar: CalendarDays,
@@ -17,7 +17,7 @@ function StatsCard({stats}) {
   };
 
     const Icon = typeIcons[stats.icon] || FolderKanban;
-    console.log(Icon)
+    // console.log(Icon)
 
 
   return (
