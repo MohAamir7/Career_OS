@@ -1,20 +1,54 @@
 import DSAcard from "../../Components/DSACards/DSA-card";
 import {dsaData} from "../../Data/DSAData";
 import { useState } from "react";
-import { Search } from "lucide-react";
+import { Search,ChevronLeft, ChevronRight } from "lucide-react";
+import Button from "../../Components/Buttons/Button";
+import DSACardStats from "../../Components/DSACards/DSACardStats";
 function DSA_Tracker() {
   const [dsaDataList, setDsaDataList] = useState(dsaData);
+  const [PageCount,setPageCount] = useState(1);
+
+   
+
+  const solvedProblems = dsaData.filter((problem) => problem.status === "Solved");
+  const DsaStats = [
+    { name: "Total Solved", value: solvedProblems.length },
+    {
+      name: "Easy Solved",
+      value: solvedProblems.filter((problem) => problem.difficulty === "Easy").length,
+    },
+    {
+      name: "Medium Solved",
+      value: solvedProblems.filter((problem) => problem.difficulty === "Medium").length,
+    },
+    {
+      name: "Hard Solved",
+      value: solvedProblems.filter((problem) => problem.difficulty === "Hard").length,
+    },
+    {
+      name: "DSA Score",
+      value: `${Math.round((solvedProblems.length / dsaData.length) * 100)}%`,
+    },
+  ];
+
+  const totalPage = Math.ceil(dsaData.length/5);
+
+  // console.log(ChevronLeft);
   return (
     <div className="min-h-screen bg-slate-50 px-4 py-6 text-slate-900 sm:px-6 lg:px-8">
       <div className="flex items-start justify-between gap-4">
         <div>
           <h2 className="text-2xl font-semibold tracking-tight">DSA Tracker</h2>
-
           <p className="mt-1 max-w-2xl text-sm text-slate-500">
             Track and manage your job Data Structures & Algorithm in one place.
             Stay organized and never miss an opportunity.
           </p>
         </div>
+      </div>
+      <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-5">
+        {DsaStats.map((data) => (
+          <DSACardStats key={data.name} name={data.name} value={data.value} />
+        ))}
       </div>
       <section className="mt-6 overflow-hidden border border-slate-200 bg-white shadow-sm">
         <div className="flex flex-col gap-3 border-b border-slate-200 p-4 lg:flex-row lg:items-center">
@@ -64,6 +98,14 @@ function DSA_Tracker() {
             ))}
           </div>
         </div>
+        <div className="flex justify-center items-center gap-2 m-2">
+          <ChevronLeft className="cursor-pointer" onClick={()=>{setPageCount(PageCount-1)}}/>
+          <Button>{PageCount}</Button>
+          <Button>/</Button>
+          <Button>{totalPage}</Button>
+          <ChevronRight className="cursor-pointer" onClick={()=>{setPageCount(PageCount+1)}}/>
+        </div>
+         
       </section>
     </div>
   );
