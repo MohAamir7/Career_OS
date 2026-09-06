@@ -6,7 +6,8 @@ import Button from "../../Components/Buttons/Button";
 import DSACardStats from "../../Components/DSACards/DSACardStats";
 function DSA_Tracker() {
   const [dsaDataList, setDsaDataList] = useState(dsaData);
-  const [PageCount,setPageCount] = useState(1);
+  const [page, setPage] = useState(1);
+  const pageSize = 5;
 
    
 
@@ -30,8 +31,9 @@ function DSA_Tracker() {
       value: `${Math.round((solvedProblems.length / dsaData.length) * 100)}%`,
     },
   ];
-
-  const totalPage = Math.ceil(dsaData.length/5);
+  const totalPage = Math.ceil(dsaDataList.length / pageSize);
+  const showData = dsaDataList.slice((page - 1) * pageSize, page * pageSize);
+  // console.log(showData);
 
   // console.log(ChevronLeft);
   return (
@@ -47,7 +49,7 @@ function DSA_Tracker() {
       </div>
       <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-5">
         {DsaStats.map((data) => (
-          <DSACardStats key={data.name} name={data.name} value={data.value} />
+          <DSACardStats key={data.name} {...data} />
         ))}
       </div>
       <section className="mt-6 overflow-hidden border border-slate-200 bg-white shadow-sm">
@@ -93,17 +95,31 @@ function DSA_Tracker() {
               <p>Solved Date</p>
               <p>Actions</p>
             </div>
-            {dsaDataList.map((problem) => (
+            {showData.map((problem) => (
               <DSAcard key={problem.id} {...problem} />
             ))}
           </div>
         </div>
-        <div className="flex justify-center items-center gap-2 m-2">
-          <ChevronLeft className="cursor-pointer" onClick={()=>{setPageCount(PageCount-1)}}/>
-          <Button>{PageCount}</Button>
+        <div className="m-2 flex items-center justify-center gap-2">
+          <Button
+            aria-label="Previous page"
+            disabled={page === 1}
+            className="p-2 disabled:cursor-not-allowed disabled:opacity-40"
+            onClick={() => setPage((currentPage) => Math.max(1, currentPage - 1))}
+          >
+            <ChevronLeft size={18} />
+          </Button>
+          <span className="min-w-8 text-center text-sm text-slate-600">{page}</span>
           <Button>/</Button>
-          <Button>{totalPage}</Button>
-          <ChevronRight className="cursor-pointer" onClick={()=>{setPageCount(PageCount+1)}}/>
+          <span className="min-w-8 text-center text-sm text-slate-600">{totalPage}</span>
+          <Button
+            aria-label="Next page"
+            disabled={page === totalPage}
+            className="p-2 disabled:cursor-not-allowed disabled:opacity-40"
+            onClick={() => setPage((currentPage) => Math.min(totalPage, currentPage + 1))}
+          >
+            <ChevronRight size={18} />
+          </Button>
         </div>
          
       </section>
