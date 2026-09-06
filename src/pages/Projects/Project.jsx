@@ -1,55 +1,76 @@
+import { projectData } from "../../Data/ProjectData";
+import ProjectCard from '../../Components/ProjectCards/ProjectCard'
+
 function Project() {
+  const ProjectData = projectData;
+//   console.log(ProjectData);
   return (
     <div className="min-h-screen bg-slate-50 px-4 py-6 text-slate-900 sm:px-6 lg:px-8">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <h2 className="text-2xl font-semibold tracking-tight">DSA Tracker</h2>
+          <h2 className="text-2xl font-semibold tracking-tight">Projects</h2>
           <p className="mt-1 max-w-2xl text-sm text-slate-500">
-            Track and manage your job Data Structures & Algorithm in one place.
-            Stay organized and never miss an opportunity.
+            Track and manage your Projects in one place. Stay organized and
+            never miss an opportunity.
           </p>
         </div>
       </div>
       <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-5">
-        {DsaStats.map((data) => (
-          <DSACardStats key={data.name} {...data} />
-        ))}
+        {/* <h1>Hello Project</h1> */}
       </div>
-      <section className="mt-6 overflow-hidden border border-slate-200 bg-white shadow-sm">
-        <div className="flex flex-col gap-3 border-b border-slate-200 p-4 lg:flex-row lg:items-center">
-          <h2 className="shrink-0 text-sm font-semibold text-slate-900">
-            Problem List
-          </h2>
-          <div className="relative min-w-0 flex-1 lg:max-w-xs">
-            <Search className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-slate-400" />
-            <input
-              type="text"
-              placeholder="Search problems..."
-              className="h-9 w-full rounded-md border border-slate-200 bg-white pl-9 pr-3 text-xs text-slate-700 outline-none transition focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
-            />
+      <div className="flex flex-col gap-3 md:flex-row *:gap-4 mt-6">
+        <input
+          type="text"
+          placeholder="Search Project..."
+          className="border border-slate-300 bg-white py-2 px-4 focus:outline-none focus:ring-2 focus:ring-indigo-500 flex-1"
+        //   onChange={searchValue}
+        //   value={searchTerm}
+        />
+        <select
+          className="border border-slate-300 bg-white py-2 px-4 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        //   onChange={selectStatus}
+        //   value={StatusFilter}
+        >
+          <option value="All Applications">All Categorise</option>
+          <option value="Completed">FrontEnd</option>
+          <option value="In Progress">Backend</option>
+          <option value="Planned">Full Stack</option>
+          <option value="AI">AI/ML</option>
+        </select>
+        <select
+          className="border border-slate-300 bg-white py-2 px-4 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        //   onChange={selectStatus}
+        //   value={StatusFilter}
+        >
+          <option value="All Applications">All Status</option>
+          <option value="Completed">Completed</option>
+          <option value="In Progress">In Progress</option>
+          <option value="Planned">Planned</option>
+        </select>
+        <select
+          className="border border-slate-300 bg-white py-2 px-4 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        //   onChange={selectRecentlyAdded}
+        //   value={RecentlyAddedFilter}
+        >
+          <option value="Recently Added">Recently Added</option>
+          <option value="Oldest">Oldest</option>
+        </select>
+      </div>
+      <div className="mt-6">
+        <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+          <div className="flex items-center justify-between">
+            <h2>Projects</h2>
+            {/* <button onClick={showApplicationData}>{visible?'Show Less':'View All'}</button> */}
           </div>
-          <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap lg:ml-auto">
-            <select className="h-9 min-w-0 rounded-md border border-slate-200 bg-white px-3 text-xs text-slate-600 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100">
-              <option>All Topics</option>
-            </select>
-            <select className="h-9 min-w-0 rounded-md border border-slate-200 bg-white px-3 text-xs text-slate-600 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100">
-              <option>All Difficulties</option>
-              <option>Easy</option>
-              <option>Medium</option>
-              <option>Hard</option>
-            </select>
-            <select className="h-9 min-w-0 rounded-md border border-slate-200 bg-white px-3 text-xs text-slate-600 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100">
-              <option>All Status</option>
-              <option>Solved</option>
-              <option>Pending</option>
-            </select>
-            <select className="h-9 min-w-0 rounded-md border border-slate-200 bg-white px-3 text-xs text-slate-600 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100">
-              <option>Recently Solved</option>
-              <option>Recently Added</option>
-            </select>
+          <div className="mt-4 space-y-3 grid grid-cols-3 gap-4">
+            {ProjectData.map((data) =>(
+              <ProjectCard key={data.id} {...data} />
+            ))}
           </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 }
+
+export default Project;
