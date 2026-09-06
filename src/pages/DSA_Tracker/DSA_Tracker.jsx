@@ -12,25 +12,25 @@ function DSA_Tracker() {
    
 
   const solvedProblems = dsaData.filter((problem) => problem.status === "Solved");
+  const getDifficultyStats = (difficulty) => {
+    const total = dsaData.filter((problem) => problem.difficulty === difficulty).length;
+    const solved = solvedProblems.filter((problem) => problem.difficulty === difficulty).length;
+
+    return `${solved}/${total}`;
+  };
+
   const DsaStats = [
-    { name: "Total Solved", value: solvedProblems.length },
-    {
-      name: "Easy Solved",
-      value: solvedProblems.filter((problem) => problem.difficulty === "Easy").length,
-    },
-    {
-      name: "Medium Solved",
-      value: solvedProblems.filter((problem) => problem.difficulty === "Medium").length,
-    },
-    {
-      name: "Hard Solved",
-      value: solvedProblems.filter((problem) => problem.difficulty === "Hard").length,
-    },
+    { name: "Total Solved", value: `${solvedProblems.length}/${dsaData.length}`,difficulty:"Total" },
+    { name: "Easy Solved", value: getDifficultyStats("Easy"),difficulty:"Easy" },
+    { name: "Medium Solved", value: getDifficultyStats("Medium"),difficulty:"Medium" },
+    { name: "Hard Solved", value: getDifficultyStats("Hard"),difficulty:"Hard" },
     {
       name: "DSA Score",
       value: `${Math.round((solvedProblems.length / dsaData.length) * 100)}%`,
+      difficulty:"Score"
     },
   ];
+  // console.log(DsaStats.find((stats)=> stats.name === "Easy Solved").value);
   const totalPage = Math.ceil(dsaDataList.length / pageSize);
   const showData = dsaDataList.slice((page - 1) * pageSize, page * pageSize);
   // console.log(showData);
