@@ -11,27 +11,27 @@ The project is designed with a scalable architecture so that backend services, a
 
 ### Dashboard
 
-![Dashboard](./public/screenShots/Dashboard.png)
+![Dashboard](./public/ScreenShot/DashBoard.png)
 
 ### Application Tracker
 
-![Applications](./public/screenShots/Applications.png)
+![Applications](./public/ScreenShot/Application.png)
 
 ### Interview Tracker
 
-![Interviews](./public/screenShots/Interviews.png)
+![Interviews](./public/ScreenShot/Interviews.png)
 
 ### Skills Tracker
 
-![Skills](./public/screenShots/Skills.png)
+![Skills](./public/ScreenShot/Skills.png)
 
 ### DSA Tracker
 
-![DSA](./public/screenShots/DSA_Tracker.png)
+![DSA](./public/ScreenShot/DSA_Tracker.png)
 
 ### Project Tracker
 
-![Projects](./public/screenShots/Projects.png)
+![Projects](./public/ScreenShot/Projects.png)
 
 
 ## ✨ Features
