@@ -31,7 +31,7 @@ The project is designed with a scalable architecture so that backend services, a
 
 ### Project Tracker
 
-![Projects](./public/ScreenShot/Projects.png)
+![Projects](./public/ScreenShot/Project.png)
 
 
 ## ✨ Features
