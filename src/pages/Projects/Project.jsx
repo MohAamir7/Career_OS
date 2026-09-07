@@ -1,5 +1,6 @@
 import { projectData } from "../../Data/ProjectData";
 import ProjectCard from '../../Components/ProjectCards/ProjectCard'
+import ProjectCardStats from '../../Components/ProjectCards/ProjectCardStats'
 
 function Project() {
   const ProjectData = projectData;
@@ -16,7 +17,9 @@ function Project() {
         </div>
       </div>
       <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-5">
-        {/* <h1>Hello Project</h1> */}
+        {Array.from({ length: 5 }, (_, index) => (
+          <ProjectCardStats key={index} />
+        ))}
       </div>
       <div className="flex flex-col gap-3 md:flex-row *:gap-4 mt-6">
         <input
