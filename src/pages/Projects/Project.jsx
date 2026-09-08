@@ -4,7 +4,44 @@ import ProjectCardStats from '../../Components/ProjectCards/ProjectCardStats'
 
 function Project() {
   const ProjectData = projectData;
-//   console.log(ProjectData);
+  // console.log(projectData.map((data)=>(console.log(data.technologies))));
+  function getValue(status){
+    let val = projectData.filter((data)=>
+      data.status === status
+    ).length;
+    return val;
+  };
+
+  function getTech(){
+    const techSet = new Set();
+    // let val;
+    projectData.map((data)=>(
+      data.technologies.forEach((tech)=>(
+        techSet.add(tech)
+      ))
+    ))
+    // console.log(techSet)
+    return techSet.size;
+  }
+
+  // console.log(getTech());
+  const ProjectStats = [
+    {
+      name:"Total Project", value:projectData.length
+        },
+        {
+          name:"Completed",value:getValue("Completed")
+        },
+        {
+          name:"In Progress",value:getValue("In Progress")
+        },
+        {
+          name:"Planned",value:getValue("Planned")
+        },
+        {
+          name:"Technologies",value:getTech()
+        }
+      ]
   return (
     <div className="min-h-screen bg-slate-50 px-4 py-6 text-slate-900 sm:px-6 lg:px-8">
       <div className="flex items-start justify-between gap-4">
@@ -17,8 +54,8 @@ function Project() {
         </div>
       </div>
       <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-5">
-        {Array.from({ length: 5 }, (_, index) => (
-          <ProjectCardStats key={index} />
+        {ProjectStats.map((data)=> (
+          <ProjectCardStats key={data.name} {...data}/>
         ))}
       </div>
       <div className="flex flex-col gap-3 md:flex-row *:gap-4 mt-6">
