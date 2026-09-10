@@ -2,7 +2,7 @@ import{Link}from"react-router-dom";
 
 function SideBar() {
   return (
-    <aside className="w-64 min-h-screen border-r border-slate-200 bg-white px-4 py-6">
+    <aside className="w-64 min-h-screen border-r border-slate-200 bg-white px-4 py-6 sticky top-0 h-screen">
       <h2 className="text-xl font-bold tracking-tight text-slate-900">
         AI Career OS
       </h2>

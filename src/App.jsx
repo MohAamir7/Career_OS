@@ -8,6 +8,7 @@ import Interviews from "./pages/Interviews/Interviews";
 import Skill from "./pages/Skills/Skill";
 import DSA_Tracker from "./pages/DSA_Tracker/DSA_Tracker";
 import Project from "./pages/Projects/Project";
+import Profile from "./pages/Profile/Profile";
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -29,6 +30,7 @@ function App() {
             <Route path="skills" element={<Skill />} />
             <Route path="dsa" element={<DSA_Tracker />} />
             <Route path="projects" element={<Project/>}/>
+            <Route path='profile' element={<Profile/>}/>
           </Route>
         </Routes>
       </BrowserRouter>
