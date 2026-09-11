@@ -14,6 +14,7 @@ function Project() {
 
   function getTech(){
     const techSet = new Set();
+    console.log(techSet)
     // let val;
     projectData.map((data)=>(
       data.technologies.forEach((tech)=>(
