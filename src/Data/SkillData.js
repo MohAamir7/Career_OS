@@ -23,7 +23,7 @@ export const skillData = [
   },
   {
     id: 4,
-    name: "React.js",
+    name: "Reactjs",
     category: "Frontend",
     level: "Intermediate",
     progress: 65,
@@ -39,7 +39,7 @@ export const skillData = [
   // Backend
   {
     id: 6,
-    name: "Node.js",
+    name: "Nodejs",
     category: "Backend",
     level: "Beginner",
     progress: 40,

@@ -1,16 +1,25 @@
 
 
 import { Code2 } from "lucide-react";
+import { IoLogoJavascript,IoLogoReact,IoLogoNodejs } from "react-icons/io5";
+import { FaJava } from "react-icons/fa6";
 
 function SkillCard({
   name,
   category,
   level,
   progress,
-  icon: Icon = Code2,
 }) {
+  const typeIcon={
+    JavaScript:IoLogoJavascript,
+    Reactjs:IoLogoReact,
+    Nodejs:IoLogoNodejs,
+    Java:FaJava
+  }
+ 
+  const Icon = typeIcon [name] || Code2;
   return (
-    <article className="w-full max-w-sm rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:shadow-md">
+    <article className="w-full mt-1 rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:shadow-md">
       <div className="flex items-start justify-between gap-4">
         <div className="flex min-w-0 items-start gap-3">
           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600">

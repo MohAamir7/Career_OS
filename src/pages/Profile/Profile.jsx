@@ -1,4 +1,6 @@
 import ProjectOverview from "../../Components/ProjectOverview/ProjectOverview";
+import { skillData } from "../../Data/SkillData";
+import SkillCard from "../../Components/SkillsCard/SkillCard"
 import {
   Code2,
   FolderKanban,
@@ -10,7 +12,11 @@ import {
 
 function Profile() {
 
-  const skillIDs = [3,4,6,7,8,9,10,11];
+  const skillIDs = [3,4,6,11];
+
+  const filterData = skillData.filter((data)=>
+    skillIDs.includes(data.id)
+  )
   return (
     <div className="min-h-screen bg-slate-50 px-4 py-6 text-slate-900 sm:px-6 lg:px-8">
       {/* ================= MAIN GRID ================= */}
@@ -19,14 +25,22 @@ function Profile() {
         {/* ================= LEFT / MAIN SECTION ================= */}
 
         <div className="min-w-0 space-y-6 xl:col-span-2">
+          
           {/* Profile Card */}
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <div className=" max-w-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <h2 className="text-lg font-semibold text-slate-900">
+              Skills
+            </h2>
             {/* Profile content */}
+            {filterData.map((skill)=>(
+              <SkillCard  key={skill.id}{...skill}/>
+            ))}
           </div>
 
           {/* Technical Skills */}
           <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
             {/* Skills content */}
+            
           </div>
 
           {/* DSA Progress */}
