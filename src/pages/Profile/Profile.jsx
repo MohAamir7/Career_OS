@@ -4,6 +4,8 @@ import SkillCard from "../../Components/SkillsCard/SkillCard";
 import { dsaData } from "../../Data/DSAData";
 import { Link } from "react-router-dom";
 import ProfileCard from "../../Components/ProfileCard/ProfileCard";
+import {interviewData} from "../../Data/InterviewData";
+import { applicationData } from "../../Data/ApplicationData";
 import {
   Code2,
   FolderKanban,
@@ -12,6 +14,7 @@ import {
   Download,
   ExternalLink,
 } from "lucide-react";
+import { projectData } from "../../Data/ProjectData";
 
 function Profile() {
   const skillIDs = [3, 4, 6, 11];
@@ -41,9 +44,19 @@ function Profile() {
   return (
     <div className="min-h-screen bg-slate-50 px-4 py-6 text-slate-900 sm:px-6 lg:px-8">
       {/* ================= MAIN GRID ================= */}
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <h2 className="text-2xl font-semibold tracking-tight">Profile</h2>
+          <p className="mt-1 max-w-2xl text-sm text-slate-500">
+            Track and manage your Profile in one place.
+            Stay organized and never miss an opportunity.
+          </p>
+        </div>
+      </div>
 
       <div className="mt-6 grid grid-cols-1 items-start gap-6 xl:grid-cols-3">
         {/* ================= LEFT / MAIN SECTION ================= */}
+        
 
         <div className="min-w-0 space-y-6 xl:col-span-2">
           {/* Profile Card */}
@@ -58,10 +71,13 @@ function Profile() {
                 <Link to="/skills">View All</Link>
               </p>
             </div>
-            {/* Profile content */}
+            <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
+
+            
             {filterData.map((skill) => (
               <SkillCard key={skill.id} {...skill} />
             ))}
+            </div>
           </div>
 
           {/* DSA Progress */}
@@ -110,9 +126,9 @@ function Profile() {
           </div>
 
           {/* Education */}
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          {/* <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
             {/* Education content */}
-          </div>
+          {/* </div> */ }
         </div>
 
         {/* ================= RIGHT SIDEBAR ================= */}
@@ -130,7 +146,7 @@ function Profile() {
 
                 <p className="mt-3 text-xs text-slate-500">Applications</p>
 
-                <p className="mt-1 text-2xl font-bold text-slate-900">24</p>
+                <p className="mt-1 text-2xl font-bold text-slate-900">{applicationData.length}</p>
               </div>
 
               <div className="rounded-xl bg-slate-50 p-4">
@@ -138,7 +154,7 @@ function Profile() {
 
                 <p className="mt-3 text-xs text-slate-500">Interviews</p>
 
-                <p className="mt-1 text-2xl font-bold text-slate-900">8</p>
+                <p className="mt-1 text-2xl font-bold text-slate-900">{interviewData.length}</p>
               </div>
 
               <div className="rounded-xl bg-slate-50 p-4">
@@ -146,7 +162,7 @@ function Profile() {
 
                 <p className="mt-3 text-xs text-slate-500">DSA Problems</p>
 
-                <p className="mt-1 text-2xl font-bold text-slate-900">120</p>
+                <p className="mt-1 text-2xl font-bold text-slate-900">{dsaData.length}</p>
               </div>
 
               <div className="rounded-xl bg-slate-50 p-4">
@@ -154,7 +170,7 @@ function Profile() {
 
                 <p className="mt-3 text-xs text-slate-500">Projects</p>
 
-                <p className="mt-1 text-2xl font-bold text-slate-900">6</p>
+                <p className="mt-1 text-2xl font-bold text-slate-900">{projectData.length}</p>
               </div>
             </div>
           </div>

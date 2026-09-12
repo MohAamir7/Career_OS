@@ -85,7 +85,7 @@ function DSA_Tracker() {
           </div>
         </div>
         <div className="overflow-x-auto">
-          <div id="problem-list" className="min-w-[850px]">
+          <div id="problem-list" className="min-w-\[850px]">
             <div className="grid grid-cols-[32px_minmax(240px,2fr)_minmax(130px,1fr)_110px_130px_130px_72px] gap-4 border-b border-slate-100 bg-slate-50/70 px-4 py-2.5 text-[10px] font-semibold uppercase tracking-wide text-slate-500">
               <p>#</p>
               <p>Problem</p>
