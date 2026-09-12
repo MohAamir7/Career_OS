@@ -2,6 +2,8 @@ import ProjectOverview from "../../Components/ProjectOverview/ProjectOverview";
 import { skillData } from "../../Data/SkillData";
 import SkillCard from "../../Components/SkillsCard/SkillCard";
 import { dsaData } from "../../Data/DSAData";
+import { Link } from "react-router-dom";
+import ProfileCard from "../../Components/ProfileCard/ProfileCard";
 import {
   Code2,
   FolderKanban,
@@ -45,12 +47,17 @@ function Profile() {
 
         <div className="min-w-0 space-y-6 xl:col-span-2">
           {/* Profile Card */}
-          <div className=" max-w-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"></div>
-
-          {/* Technical Skills */}
+          <div className="mt-6">
+            <ProfileCard />
+          </div>
           <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
             {/* Skills content */}
-            <h2 className="text-lg font-semibold text-slate-900">Skills</h2>
+            <div className="flex justify-between">
+              <h2 className="text-lg font-semibold text-slate-900">Skills</h2>
+              <p className="flex items-center rounded-lg px-3 py-2 text-sm font-medium text-slate-600 cursor-pointer transition-colors duration-150 hover:bg-slate-100 hover:text-slate-900">
+                <Link to="/skills">View All</Link>
+              </p>
+            </div>
             {/* Profile content */}
             {filterData.map((skill) => (
               <SkillCard key={skill.id} {...skill} />
@@ -60,17 +67,37 @@ function Profile() {
           {/* DSA Progress */}
           <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
             {/* DSA content */}
-            <h2 className="text-lg font-semibold text-slate-900">
-              DSA Progress
-            </h2>
+            <div className="flex justify-between">
+              <h2 className="text-lg font-semibold text-slate-900">
+                DSA Progress
+              </h2>
+              <p className="flex items-center rounded-lg px-3 py-2 text-sm font-medium text-slate-600 cursor-pointer transition-colors duration-150 hover:bg-slate-100 hover:text-slate-900">
+                <Link to="/dsa">View All</Link>
+              </p>
+            </div>
+
             <div className="flex flex-row justify-between">
               <div className="mt-3 flex h-24 w-24 items-center justify-center rounded-full border-8 border-indigo-100 bg-white text-xl font-bold text-indigo-600 shadow-sm">
                 {TotalSolved.length}/{dsaData.length}
               </div>
               <div>
                 {DsaContent.map((data) => (
-                  <p key={data.name}>
-                    {data.name}: {data.value}
+                  <p key={data.name} className="flex items-center gap-2">
+                    <span
+                      className={`h-2.5 w-2.5 rounded-full ${
+                        data.name === "Easy"
+                          ? "bg-emerald-500"
+                          : data.name === "Medium"
+                            ? "bg-amber-500"
+                            : data.name === "Hard"
+                              ? "bg-red-500"
+                              : "bg-indigo-500"
+                      }`}
+                      aria-hidden="true"
+                    />
+                    <span>
+                      {data.name}: {data.value}
+                    </span>
                   </p>
                 ))}
               </div>
