@@ -1,6 +1,7 @@
 import ProjectOverview from "../../Components/ProjectOverview/ProjectOverview";
 import { skillData } from "../../Data/SkillData";
-import SkillCard from "../../Components/SkillsCard/SkillCard"
+import SkillCard from "../../Components/SkillsCard/SkillCard";
+import { dsaData } from "../../Data/DSAData";
 import {
   Code2,
   FolderKanban,
@@ -11,12 +12,30 @@ import {
 } from "lucide-react";
 
 function Profile() {
+  const skillIDs = [3, 4, 6, 11];
 
-  const skillIDs = [3,4,6,11];
+  const filterData = skillData.filter((data) => skillIDs.includes(data.id));
+  const TotalSolved = dsaData.filter((data) => data.status === "Solved");
+  const DsaContent = [
+    {
+      name: "Total Solved",
+      value: TotalSolved.length,
+    },
+    {
+      name: "Easy",
+      value: TotalSolved.filter((data) => data.difficulty === "Easy").length,
+    },
+    {
+      name: "Medium",
+      value: TotalSolved.filter((data) => data.difficulty === "Medium").length,
+    },
+    {
+      name: "Hard",
+      value: TotalSolved.filter((data) => data.difficulty === "Hard").length,
+    },
+  ];
+  console.log(TotalSolved);
 
-  const filterData = skillData.filter((data)=>
-    skillIDs.includes(data.id)
-  )
   return (
     <div className="min-h-screen bg-slate-50 px-4 py-6 text-slate-900 sm:px-6 lg:px-8">
       {/* ================= MAIN GRID ================= */}
@@ -25,27 +44,37 @@ function Profile() {
         {/* ================= LEFT / MAIN SECTION ================= */}
 
         <div className="min-w-0 space-y-6 xl:col-span-2">
-          
           {/* Profile Card */}
-          <div className=" max-w-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <h2 className="text-lg font-semibold text-slate-900">
-              Skills
-            </h2>
-            {/* Profile content */}
-            {filterData.map((skill)=>(
-              <SkillCard  key={skill.id}{...skill}/>
-            ))}
-          </div>
+          <div className=" max-w-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"></div>
 
           {/* Technical Skills */}
           <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
             {/* Skills content */}
-            
+            <h2 className="text-lg font-semibold text-slate-900">Skills</h2>
+            {/* Profile content */}
+            {filterData.map((skill) => (
+              <SkillCard key={skill.id} {...skill} />
+            ))}
           </div>
 
           {/* DSA Progress */}
           <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
             {/* DSA content */}
+            <h2 className="text-lg font-semibold text-slate-900">
+              DSA Progress
+            </h2>
+            <div className="flex flex-row justify-between">
+              <div className="mt-3 flex h-24 w-24 items-center justify-center rounded-full border-8 border-indigo-100 bg-white text-xl font-bold text-indigo-600 shadow-sm">
+                {TotalSolved.length}/{dsaData.length}
+              </div>
+              <div>
+                {DsaContent.map((data) => (
+                  <p key={data.name}>
+                    {data.name}: {data.value}
+                  </p>
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* Projects */}
